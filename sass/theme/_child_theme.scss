@@ -1,10 +1,70 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+# Body
+# Navigation
+# Content
+# Static Hero
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Body
+--------------------------------------------------------------*/
+
 body {
 background-color:$gray-lightest;
+}
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+
+#navbarSide{
+	.menu-item{
+	    float: none;
+	    display: block;
+	}
+
+	.nav{
+		display: block;
+	}
+}
+
+
+.split-menu-row{
+	width: 100%;
+}
+
+.split-menu-row{
+
+	#main-menu-left{
+		float: right;
+	}
+
+	#main-menu-right{
+		float: left;
+	}
+
 }
 
 .entry-footer, .entry-meta {
 	font-size:.875em;
 }
+
+.navbar-brand {
+	a {
+		color:inherit;
+	}
+	a:hover {
+		text-decoration:none;
+	}
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
 
 article {
 	padding-bottom: ($grid-gutter-width-base/2);
@@ -43,14 +103,9 @@ img.wp-post-image {
 	border-top:1px solid $gray-lighter;
 }
 
-.navbar-brand {
-	a {
-		color:inherit;
-	}
-	a:hover {
-		text-decoration:none;
-	}
-}
+/*--------------------------------------------------------------
+# Static Hero
+--------------------------------------------------------------*/
 
 #wrapper-static-hero {
 	border-top:1px solid rgba(255,255,255,.2);
