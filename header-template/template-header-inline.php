@@ -21,9 +21,6 @@
 			<div class="container">
 		<?php endif; ?>
 
-				<button class="navbar-toggler" type="button" data-toggle="offcanvas" data-target="#navbarSide" data-canvas="#body_canvas" aria-controls="navbarSide" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
 
 					<!-- Your site title as branding in the menu -->
 					<?php if ( ! has_custom_logo() ) { ?>
@@ -43,6 +40,9 @@
 						the_custom_logo();
 					} ?><!-- end custom logo -->
 
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="offcanvas" data-target="#navbarSide" data-canvas="#body_canvas" aria-controls="navbarSide" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
 				<!-- List of Menus before Collapse -->
 
@@ -51,7 +51,7 @@
 						'theme_location'  => 'primary',
 						'container_class' => 'collapse navbar-collapse',
 						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
+						'menu_class'      => 'navbar-nav offset-8',
 						'fallback_cb'     => '',
 						'menu_id'         => 'main-menu',
 						'walker'          => new WP_Bootstrap_Navwalker(),
