@@ -6,8 +6,9 @@
  *
  * @package understrap
  */
-
-$container = get_theme_mod( 'understrap_container_type' );
+	$container = get_theme_mod( 'understrap_container_type' );
+	$header_layout = get_theme_mod( 'understrap_header_layout' );
+	$topbar_status = get_theme_mod( 'understrap_topbar_status' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -24,61 +25,39 @@ $container = get_theme_mod( 'understrap_container_type' );
 </head>
 
 <body <?php body_class(); ?>>
+<div id="body_canvas" class="hfeed site canvas-slid" id="page">
 
-<div class="hfeed site" id="page">
-
-	<!-- ******************* The Navbar Area ******************* -->
-	<div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
-
-		<a class="skip-link screen-reader-text sr-only" href="#content"><?php _e( 'Skip to content',
-		'understrap' ); ?></a>
-
-		<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
-
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    				<span class="navbar-toggler-icon"></span>
- 				 </button>
-
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-							
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						
-						<?php endif; ?>
-						
-					
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
-
-				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'walker'          => new WP_Bootstrap_Navwalker(),
-					)
-				); ?>
-
-				<?php if ( is_active_sidebar( 'navbar-right' ) ) : ?><div class="navbar-right-widget"><?php dynamic_sidebar( 'navbar-right' ); ?></div><?php endif; ?>
+	<!-- ******************* The Topbar Area ******************* -->
+	<?php if( $topbar_status == "topbar-enable" || empty($topbar_status) ){ ?>
+		<div class="topbar">
 			<?php if ( 'container' == $container ) : ?>
-			</div><!-- .container -->
+				<div class="container">
 			<?php endif; ?>
 
-		</nav><!-- .site-navigation -->
+				<div class="row align-items-center">
+					<div class="col-md-6 text-left">
+						<?php dynamic_sidebar( 'topbar-left' ); ?>
+					</div>
+					<div class="col-md-6 text-right">
+						<?php dynamic_sidebar( 'topbar-right' ); ?>
+					</div>
+				</div>
 
-	</div><!-- .wrapper-navbar end -->
+
+			<?php if ( 'container' == $container ) : ?>
+				</div><!-- .container -->
+			<?php endif; ?>
+		</div>
+	<?php } ?>
+
+	<!-- ******************* The Navbar Area ******************* -->
+
+	<?php 
+		if( $header_layout == "header-inline" || empty( $header_layout ) ){
+			get_template_part( 'header-template/template-header', 'inline' ); 
+		}elseif( $header_layout == "header-classic" ){
+			get_template_part( 'header-template/template-header', 'classic' ); 
+		}elseif( $header_layout == "header-split" ){
+			get_template_part( 'header-template/template-header', 'split' ); 
+		}
+	?>
