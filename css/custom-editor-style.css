@@ -6864,6 +6864,12 @@ aside.widget {
 #wrapper-hero .carousel-inner .textwidget {
   width: 100%; }
 
+h1.navbar-brand a {
+  color: inherit; }
+
+h1.navbar-brand a:hover {
+  text-decoration: none; }
+
 /*
 * Use existing Bootstrap 4 classes and
 * variables to extend - override CF7 style
@@ -9227,12 +9233,53 @@ aside.widget {
 .gallery-caption {
   display: block; }
 
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+# Body
+# Navigation
+# Content
+# Static Hero
+
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Body
+--------------------------------------------------------------*/
 body {
   background-color: #f7f7f9; }
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+#navbarSide .menu-item {
+  float: none;
+  display: block; }
+
+#navbarSide .nav {
+  display: block; }
+
+.split-menu-row {
+  width: 100%; }
+
+.split-menu-row #main-menu-left {
+  float: right; }
+
+.split-menu-row #main-menu-right {
+  float: left; }
 
 .entry-footer, .entry-meta {
   font-size: .875em; }
 
+.navbar-brand a {
+  color: inherit; }
+
+.navbar-brand a:hover {
+  text-decoration: none; }
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
 article {
   padding-bottom: 40px;
   margin-bottom: 40px;
@@ -9263,12 +9310,9 @@ img.wp-post-image {
   border-bottom: 1px solid #eceeef;
   border-top: 1px solid #eceeef; }
 
-.navbar-brand a {
-  color: inherit; }
-
-.navbar-brand a:hover {
-  text-decoration: none; }
-
+/*--------------------------------------------------------------
+# Static Hero
+--------------------------------------------------------------*/
 #wrapper-static-hero {
   border-top: 1px solid rgba(255, 255, 255, 0.2); }
 
